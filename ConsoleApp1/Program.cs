@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace ConsoleApp1
 {
@@ -7,21 +7,29 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             string login = "admin2";
-            string pasword = "pass1234";
+            string password = "pass1234";
 
-            strinf userName, userPassword;
+            string userName, userPassword;
+            int tries = 0;
 
-            Console.WriteLine("enter your username");
-            userName = Console.ReadLine();
-            Console.WriteLine("enter your password");
-            userPassword = Console.ReadLine();
+            while (tries != 3)
+            {
+                Console.WriteLine("enter your username");
+                userName = Console.ReadLine();
+                Console.WriteLine("enter your password");
+                userPassword = Console.ReadLine();
 
-            if(login == userName && userPassword == userPassword)
-                Console.WriteLine("welcome!")
-
-            else
-                Console.WriteLine("Oops, something went wrong")
-
-        }
-    }
+                if (login != userName || Password != userPassword)
+                {
+                    Console.WriteLine("Oops, something went wrong");
+                    tries++; //tries=tries+1
+                    Console.WriteLine($"{3 - tries} attempts left");
+                }
+                else
+                {
+                    Console.WriteLine("welcome!");
+                    break;
+                }
+            }
+        } 
 }
